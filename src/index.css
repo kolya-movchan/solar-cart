@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
 }
@@ -26,7 +30,4 @@ h2 {
 }
 
 body {
-  background-color: pink;
 }
-
-/*# sourceMappingURL=index.css.map */
