@@ -10,7 +10,8 @@ export interface Product {
 export interface Cart {
   loading: boolean,
   error: string,
-  products: Product[]
+  products: Product
+  // basketProducts: Product[]
   amount: number
   total: number
 }

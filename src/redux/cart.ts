@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Cart, Product } from '../types/Cart'
 import axios from 'axios'
+import { Cart } from '../types/Cart'
 
 const initialState: Cart = {
   loading: false,
   error: '',
-  products: [],
+  products: {},
+  // basketProducts: [],
   amount: 0,
   total: 0
 }
@@ -33,7 +34,7 @@ export const cart = createSlice({
     })
     builder.addCase(fetchProducts.rejected, (state, action) => {
       state.loading = false
-      state.products = []
+      state.products = {}
       if (action.error.message) {
         state.error = action.error.message
       }
