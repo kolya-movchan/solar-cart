@@ -1,17 +1,13 @@
-interface ProductInfo {
-  quantity: number
-  price: number
-}
-
 export interface Product {
-  [productName: string]: ProductInfo
+  name: string,
+  amount: number,
+  quantity: number,
+  price: number,
 }
 
 export interface Cart {
   loading: boolean,
-  error: string,
-  products: Product
-  // basketProducts: Product[]
+  products: Product[]
   amount: number
   total: number
 }
