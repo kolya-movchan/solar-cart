@@ -1,13 +1,13 @@
 export interface Product {
-  name: string,
+  name: string
   amountOrdered: number
-  quantity: number,
-  price: number,
+  quantity: number
+  price: number
 }
 
 export interface Cart {
-  loading: boolean,
-  error: string,
+  loading: boolean
+  error: string
   products: Product[]
   amount: number
   total: number

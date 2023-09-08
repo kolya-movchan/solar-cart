@@ -60,7 +60,6 @@ export const cart = createSlice({
       state.amount = 0
     }
   },
-
   extraReducers: builder => {
     builder.addCase(fetchProducts.pending, (state: Cart) => {
       state.loading = true
