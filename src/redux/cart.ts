@@ -1,19 +1,18 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { Cart, Product } from '../types/Cart'
 import { toast } from 'react-toastify'
+import { Cart, Product } from '../types/Cart'
 
 const initialState: Cart = {
   loading: false,
+  error: '',
   products: [],
   amount: 0,
   total: 0
 }
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts', () => {
-  return axios
-    .get('https://testtask.twnty.de/')
-    .then(response => response.data)
+  return axios.get('https://testtask.twnty.de/').then(response => response.data)
 })
 
 export const cart = createSlice({
@@ -26,7 +25,7 @@ export const cart = createSlice({
       )
 
       if (item) {
-        item.amount++
+        item.amountOrdered++
         item.quantity--
       }
     },
@@ -36,7 +35,7 @@ export const cart = createSlice({
       )
 
       if (item) {
-        item.amount--
+        item.amountOrdered--
         item.quantity++
       }
     },
@@ -50,12 +49,15 @@ export const cart = createSlice({
       let total = 0
 
       state.products.forEach(product => {
-        amount += product.amount
-        total += product.amount * product.price
+        amount += product.amountOrdered
+        total += product.amountOrdered * product.price
       })
 
       state.amount = amount
       state.total = total
+    },
+    removeAll: (state: Cart) => {
+      state.amount = 0
     }
   },
 
@@ -68,9 +70,9 @@ export const cart = createSlice({
       (state, action: PayloadAction<Product>) => {
         state.loading = false
         state.products = Object.entries(action.payload).map(([key, value]) => ({
+          ...value,
           name: key,
-          amount: 1,
-          ...value
+          amountOrdered: 1
         }))
         state.error = ''
       }
@@ -80,11 +82,19 @@ export const cart = createSlice({
 
       state.loading = false
       state.products = []
+      if (action.error.message) {
+        state.error = action.error.message
+      }
     })
   }
 })
 
-export const { increaseAmount, decreaseAmount, removeItem, updateTotal } =
-  cart.actions
+export const {
+  increaseAmount,
+  decreaseAmount,
+  removeItem,
+  updateTotal,
+  removeAll
+} = cart.actions
 
 export default cart.reducer
