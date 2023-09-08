@@ -12,7 +12,7 @@ const Navbar = () => {
         </span>
       </p>
 
-      <div className="fixed top-2/4 right-px h-8 bg-cyan-300 rounded w-8 bg-left flex justify-center items-center opacity-70 hover:opacity-100">
+      <div className="fixed top-2/4 right-[10px] h-9 w-10 bg-cyan-300 rounded bg-left flex justify-center items-center opacity-70 hover:opacity-100">
         <a
           href="https://www.loom.com/share/4e3948b5ba674fcea4060ff6511a85cf?sid=f713fa86-be68-41ea-87d1-dd48dcd06bff"
           className="p-1"

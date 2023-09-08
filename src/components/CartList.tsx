@@ -4,6 +4,7 @@ import { toast } from 'react-toastify'
 import { fetchProducts, removeAll } from '../redux/cart'
 import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import Product from './Product'
+import Receipt from './Receipt'
 
 const CartList = () => {
   const dispatch = useAppDispatch()
@@ -73,30 +74,7 @@ const CartList = () => {
       )}
 
       {isOrderSubmitted && (
-        <div
-          className={
-            ' bg-white border-t border-gray-300 p-4 shadow-lg transform transition-transform duration-500 ease-in-out border-none rounded-lg'
-          }
-        >
-          {' '}
-          <h2 className="text-2xl font-semibold mb-4">Order Summary</h2>
-          <p className="text-lg font-medium">Products ordered:</p>
-          <ul className="list-disc pl-4">
-            {products.map(product => {
-              const { name, amountOrdered, quantity } = product
-              return (
-                <li key={name}>
-                  {name} x{amountOrdered},{' '}
-                  <span className="text-gray-600 text-sm font-medium tracking-wide">
-                    available:
-                  </span>{' '}
-                  {quantity}
-                </li>
-              )
-            })}
-          </ul>
-          <p className="text-lg font-medium mt-4">Total: ${total}</p>
-        </div>
+        <Receipt products={products} total={total} />
       )}
     </div>
   )
