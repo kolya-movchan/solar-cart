@@ -4,7 +4,7 @@ const Navbar = () => {
   const amount = useAppSelector(store => store.cart.amount)
 
   return (
-    <div className="flex flex-row justify-center mt-2 p-2 text-lg font-medium sticky top-0 bg-white">
+    <div className="flex flex-row justify-center mt-2 p-2 text-lg font-medium sticky top-0 bg-white z-[2]">
       <p>
         Basket
         <span className="text-xs align-top bg-red-500 text-white rounded-full px-2 py-1 mx-1">
