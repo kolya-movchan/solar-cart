@@ -5,7 +5,7 @@ Introducing the Solar Module Shopping Cart, your one-stop solution for effortles
 Check out the [**Live Demo**](https://kolya-movchan.github.io/solar-cart) to see it in action!
 
 <p align="center">
-  <img src="https://github.com/kolya-movchan/solar-cart/raw/main/public/shopping-cart-screenshot.png" alt="Solar Module Shopping Cart Screenshot" style="margin-bottom: 20px;">
+  <img src="https://github.com/kolya-movchan/solar-cart/raw/main/public/screenshots/shopping-cart-screenshot.png" alt="Shopping Cart Screenshot" style="margin-bottom: 20px;">
 </p>
 
 ## Features 🚀
